@@ -1,0 +1,6 @@
+test
+es6
+.editor*
+.git*
+.js*
+.travis*
