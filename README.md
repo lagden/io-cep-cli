@@ -16,10 +16,8 @@
 
 #### Install
 
-**io-cep** works well with standard input.
-
 ```
-$ npm install -g io-cep-cep
+$ npm i -g io-cep-cli
 ```
 
 
