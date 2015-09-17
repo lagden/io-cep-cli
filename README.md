@@ -1,6 +1,6 @@
-# io-cep-cli [![Build Status](https://travis-ci.org/lagden/io-cep-cli.svg?branch=master)](https://travis-ci.org/lagden/io-cep-cli)
+# io-cep-cli [![Build Status](https://travis-ci.org/lagden/io-cep-cli.svg?branch=master)](https://travis-ci.org/lagden/io-cep-cli) [![Awesome](http://cdn.lagden.in/awesome/badge.svg)](https://github.com/lagden/awesome-nodejs)
 
-> Search address using zip code through Correios's form
+> Search address using zip code through Correios
 
 
 ## CLI
