@@ -5,13 +5,7 @@
 
 ## CLI
 
-```
-┌─────────────────┬──────────────┬────────────┬────┬──────────┬──────────┐
-│ logradouro      │ bairro       │ localidade │ uf │ cep      │ req      │
-├─────────────────┼──────────────┼────────────┼────┼──────────┼──────────┤
-│ Avenida Jandira │ Indianópolis │ São Paulo  │ SP │ 04080001 │ 04080001 │
-└─────────────────┴──────────────┴────────────┴────┴──────────┴──────────┘
-```
+![Demo cep CLI](https://raw.githubusercontent.com/lagden/io-cep-cli/master/demo.gif)
 
 
 #### Install
