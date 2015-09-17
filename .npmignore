@@ -4,3 +4,4 @@ es6
 .git*
 .js*
 .travis*
+*.gif
