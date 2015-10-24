@@ -9,6 +9,7 @@ const pkg = require('./package.json');
 const consulta = require('io-cep');
 
 const error = chalk.bold.red;
+let cep;
 
 function fail(err) {
 	process.stdout.write(`${error('\u2716')} ${err}\n`);
@@ -32,16 +33,18 @@ function success(res) {
 
 program
 	.version(pkg.version)
-	.usage('<zipcode>')
-	.description('Search address using zip code')
-	.arguments('<zipcode>')
+	.description('Procurar endereço utilizando o CEP')
+	.usage('<cep>')
+	.arguments('<cep>')
 	.action(zipcode => {
-		consulta(zipcode)
-			.then(success)
-			.catch(fail);
+		cep = String(zipcode);
 	})
 	.parse(process.argv);
 
 if (!program.args.length) {
 	program.help();
 }
+
+consulta(cep)
+	.then(success)
+	.catch(fail);

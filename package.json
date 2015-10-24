@@ -1,6 +1,6 @@
 {
   "name": "io-cep-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Search address using zip code through Correios",
   "keywords": [
     "cli-app",
@@ -21,7 +21,6 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
-  "main": "cli.js",
   "preferGlobal": true,
   "bin": {
     "cep": "cli.js"
@@ -29,23 +28,20 @@
   "repository": "lagden/io-cep-cli",
   "scripts": {
     "pretest": "xo",
-    "test": "mocha --reporter spec --require should",
-    "start": "watch xo"
+    "test": "ava"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "watch": "^0.16.0",
+    "ava": "^0.2.0",
     "xo": "^0.10.0"
   },
   "dependencies": {
     "chalk": "^1.1.0",
     "cli-table": "^0.3.1",
     "commander": "^2.8.1",
-    "io-cep": "^0.5.3"
+    "io-cep": "^0.5.4"
   },
   "xo": {
     "envs": [
@@ -54,14 +50,25 @@
     ],
     "esnext": true,
     "rules": {
-      "arrow-parens": [2, "as-needed"],
-      "prefer-reflect": [2, {
-        "exceptions": ["delete"]
-      }],
-      "new-cap": [2, {
-        "newIsCap": true,
-        "capIsNew": false
-      }]
+      "arrow-parens": [
+        2,
+        "as-needed"
+      ],
+      "prefer-reflect": [
+        2,
+        {
+          "exceptions": [
+            "delete"
+          ]
+        }
+      ],
+      "new-cap": [
+        2,
+        {
+          "newIsCap": true,
+          "capIsNew": false
+        }
+      ]
     }
   }
 }
