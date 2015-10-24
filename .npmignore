@@ -1,7 +1,12 @@
 test
-es6
 .editor*
 .git*
 .js*
 .travis*
 *.gif
+.nyc*
+*.log
+
+# don't ignore .npmignore files
+# these are used in some tests.
+!.npmignore
