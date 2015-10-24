@@ -30,7 +30,6 @@
   "scripts": {
     "pretest": "xo",
     "test": "mocha --reporter spec --require should",
-    "prepublish": "npm test",
     "start": "watch xo"
   },
   "engines": {
