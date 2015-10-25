@@ -1,5 +1,5 @@
 # io-cep-cli [![NPM version](https://img.shields.io/npm/v/io-cep-cli.svg)](https://www.npmjs.com/package/io-cep-cli)
-[![Build Status](https://travis-ci.org/lagden/io-cep-cli.svg?branch=2.0.0)](https://travis-ci.org/lagden/io-cep-cli)
+[![Build Status](https://travis-ci.org/lagden/io-cep-cli.svg?branch=master)](https://travis-ci.org/lagden/io-cep-cli)
 [![Dependency Status](https://david-dm.org/lagden/io-cep-cli.svg)](https://david-dm.org/lagden/io-cep-cli) 
 [![devDependency Status](https://david-dm.org/lagden/io-cep-cli/dev-status.svg)](https://david-dm.org/lagden/io-cep-cli#info=devDependencies)
 
