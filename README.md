@@ -6,6 +6,11 @@
 > Busca por informações de uma localidade através do endereço ou CEP utilizando os [Correios](http://www.correios.com.br/)
 
 
+## CLI
+
+![Demo CLI](https://raw.githubusercontent.com/lagden/io-cep-cli/master/demo.gif)
+
+
 #### Install
 
 ```
