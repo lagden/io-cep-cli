@@ -13,8 +13,8 @@ test('valid', t => {
 	t.plan(1);
 	spawn(bin, ['04653055'])
 		.stdout
-		.on('data', data => {
-			t.same(data.length, out.length);
+		.on('data', buffer => {
+			t.same(buffer.length, out.length);
 		});
 });
 
@@ -22,7 +22,7 @@ test('invalid', t => {
 	t.plan(1);
 	spawn(bin, ['123'])
 		.stdout
-		.on('data', buf => {
-			t.same(buf.toString('utf8'), '✖ Invalid format\n');
+		.on('data', buffer => {
+			t.same(buffer.toString('utf8'), '✖ Dados não encontrado ou erro de análise\n');
 		});
 });

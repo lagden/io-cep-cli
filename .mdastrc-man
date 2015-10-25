@@ -1,0 +1,11 @@
+
+{
+  "output": "man/",
+  "plugins": {
+    "mdast-man": {
+      "date": "2015-10-25",
+      "manual": "correios manual",
+      "version": "2.0.0"
+    }
+  }
+}

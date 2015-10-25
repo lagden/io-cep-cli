@@ -1,7 +1,7 @@
 {
   "name": "io-cep-cli",
-  "version": "1.0.1",
-  "description": "Search address using zip code through Correios",
+  "version": "2.0.0",
+  "description": "Busca por informações de uma localidade através do endereço ou CEP utilizando os Correios",
   "keywords": [
     "cli-app",
     "cli",
@@ -21,13 +21,21 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
+  "directories": {
+    "man": "./man"
+  },
+  "files": [
+    "cli.js",
+    "man"
+  ],
   "preferGlobal": true,
   "bin": {
-    "cep": "cli.js"
+    "correios": "./cli.js"
   },
+  "man" : "./man/correios.1",
   "repository": "lagden/io-cep-cli",
   "scripts": {
-    "pretest": "xo",
+    "build-man": "mdast doc/*.?.md --config-path .mdastrc-man --quiet",
     "test": "ava"
   },
   "engines": {
@@ -35,13 +43,15 @@
   },
   "devDependencies": {
     "ava": "^0.2.0",
+    "mdast": "^2.1.0",
+    "mdast-man": "^1.1.1",
     "xo": "^0.10.0"
   },
   "dependencies": {
     "chalk": "^1.1.0",
     "cli-table": "^0.3.1",
     "commander": "^2.8.1",
-    "io-cep": "^0.5.4"
+    "io-cep": "^2.1.1"
   },
   "xo": {
     "envs": [
@@ -68,7 +78,8 @@
           "newIsCap": true,
           "capIsNew": false
         }
-      ]
+      ],
+      "lines-around-comment": 0
     }
   }
 }

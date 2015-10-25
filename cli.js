@@ -9,11 +9,19 @@ const pkg = require('./package.json');
 const consulta = require('io-cep');
 
 const error = chalk.bold.red;
-let cep;
+let input;
 
 function fail(err) {
-	process.stdout.write(`${error('\u2716')} ${err}\n`);
+	process.stdout.write(`${error('\u2716')} ${err.message}\n`);
 	process.exit(1);
+}
+
+function showSuccess(dados) {
+	const head = Object.keys(dados);
+	const values = head.map(k => dados[k]);
+	const table = new Table({head});
+	table.push(values);
+	process.stdout.write(`${table.toString()}\n`);
 }
 
 function success(res) {
@@ -23,21 +31,20 @@ function success(res) {
 		// Reflect.deleteProperty(res, 'success');
 		delete res.success;
 	}
-	const head = Object.keys(res);
-	const values = head.map(k => res[k]);
-	const table = new Table({head});
-	table.push(values);
-	process.stdout.write(`${table.toString()}\n`);
+	for (const dados of res.dados) {
+		dados.req = res.req;
+		showSuccess(dados);
+	}
 	process.exit();
 }
 
 program
 	.version(pkg.version)
-	.description('Procurar endereço utilizando o CEP')
-	.usage('<cep>')
-	.arguments('<cep>')
-	.action(zipcode => {
-		cep = String(zipcode);
+	.description('Busca por informações de uma localidade através do endereço ou CEP')
+	.usage('<input>')
+	.arguments('<input>')
+	.action(req => {
+		input = String(req);
 	})
 	.parse(process.argv);
 
@@ -45,6 +52,6 @@ if (!program.args.length) {
 	program.help();
 }
 
-consulta(cep)
+consulta(input)
 	.then(success)
 	.catch(fail);
