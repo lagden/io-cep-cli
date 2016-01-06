@@ -5,11 +5,11 @@
 const program = require('commander');
 const Table = require('cli-table');
 const chalk = require('chalk');
-const pkg = require('./package.json');
+const Reflect = require('harmony-reflect');
 const consulta = require('io-cep');
 
+const pkg = require('./package.json');
 const error = chalk.bold.red;
-let input;
 
 function fail(err) {
 	process.stdout.write(`${error('\u2716')} ${err.message}\n`);
@@ -27,9 +27,7 @@ function showSuccess(dados) {
 function success(res) {
 	if (res.hasOwnProperty('success')) {
 		res.success = null;
-
-		// Reflect.deleteProperty(res, 'success');
-		delete res.success;
+		Reflect.deleteProperty(res, 'success');
 	}
 	for (const dados of res.dados) {
 		dados.req = res.req;
@@ -44,14 +42,12 @@ program
 	.usage('<input>')
 	.arguments('<input>')
 	.action(req => {
-		input = String(req);
+		consulta(String(req))
+			.then(success)
+			.catch(fail);
 	})
 	.parse(process.argv);
 
 if (!program.args.length) {
 	program.help();
 }
-
-consulta(input)
-	.then(success)
-	.catch(fail);

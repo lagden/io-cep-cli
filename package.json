@@ -32,25 +32,26 @@
   "bin": {
     "correios": "./cli.js"
   },
-  "man" : "./man/correios.1",
+  "man": "./man/correios.1",
   "repository": "lagden/io-cep-cli",
   "scripts": {
-    "build-man": "mdast doc/*.?.md --config-path .mdastrc-man --quiet",
+    "build-man": "remark doc/*.?.md --config-path .remarkrc-man --quiet",
     "test": "ava"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "ava": "^0.3.0",
-    "mdast": "^2.1.0",
-    "mdast-man": "^1.1.1",
-    "xo": "^0.10.0"
+    "ava": "^0.9.1",
+    "remark": "^3.0.0",
+    "remark-man": "^2.0.0",
+    "xo": "^0.12.1"
   },
   "dependencies": {
     "chalk": "^1.1.0",
     "cli-table": "^0.3.1",
-    "commander": "^2.8.1",
+    "commander": "^2.9.0",
+    "harmony-reflect": "^1.4.2",
     "io-cep": "^2.1.1"
   },
   "xo": {
@@ -58,28 +59,6 @@
       "es6",
       "node"
     ],
-    "esnext": true,
-    "rules": {
-      "arrow-parens": [
-        2,
-        "as-needed"
-      ],
-      "prefer-reflect": [
-        2,
-        {
-          "exceptions": [
-            "delete"
-          ]
-        }
-      ],
-      "new-cap": [
-        2,
-        {
-          "newIsCap": true,
-          "capIsNew": false
-        }
-      ],
-      "lines-around-comment": 0
-    }
+    "esnext": true
   }
 }

@@ -1,9 +1,8 @@
-
 {
   "output": "man/",
   "plugins": {
-    "mdast-man": {
-      "date": "2015-10-25",
+    "remark-man": {
+      "date": "2016-01-06",
       "manual": "correios manual",
       "version": "2.0.0"
     }
