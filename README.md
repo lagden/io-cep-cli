@@ -2,16 +2,12 @@
 
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
-[![Coverage Status][coveralls-img]][coveralls]
-[![devDependency Status][devDep-img]][devDep]
 [![XO code style][xo-img]][xo]
 
 [npm-img]:       https://img.shields.io/npm/v/io-cep-cli.svg
 [npm]:           https://www.npmjs.com/package/io-cep-cli
 [ci-img]:        https://travis-ci.org/lagden/io-cep-cli.svg
 [ci]:            https://travis-ci.org/lagden/io-cep-cli
-[devDep-img]:    https://david-dm.org/lagden/io-cep-cli/dev-status.svg
-[devDep]:        https://david-dm.org/lagden/io-cep-cli#info=devDependencies
 [xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
 [xo]:            https://github.com/sindresorhus/xo
 
