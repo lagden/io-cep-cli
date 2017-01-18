@@ -10,8 +10,6 @@
 [npm]:           https://www.npmjs.com/package/io-cep-cli
 [ci-img]:        https://travis-ci.org/lagden/io-cep-cli.svg
 [ci]:            https://travis-ci.org/lagden/io-cep-cli
-[coveralls-img]: https://coveralls.io/repos/github/lagden/io-cep-cli/badge.svg?branch=master
-[coveralls]:     https://coveralls.io/github/lagden/io-cep-cli?branch=master
 [devDep-img]:    https://david-dm.org/lagden/io-cep-cli/dev-status.svg
 [devDep]:        https://david-dm.org/lagden/io-cep-cli#info=devDependencies
 [xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
