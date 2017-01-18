@@ -1,39 +1,55 @@
 #!/usr/bin/env node
 
-'use strict';
+'use strict'
 
-const program = require('commander');
-const Table = require('cli-table');
-const chalk = require('chalk');
-const Reflect = require('harmony-reflect');
-const consulta = require('io-cep');
+const program = require('commander')
+const Table = require('cli-table2')
+const chalk = require('chalk')
+const consulta = require('io-cep')
+const pkg = require('./package.json')
 
-const pkg = require('./package.json');
-const error = chalk.bold.red;
+const error = chalk.bold.red
+const warn = chalk.bold.yellow
 
 function fail(err) {
-	process.stdout.write(`${error('\u2716')} ${err.message}\n`);
-	process.exit(1);
+	process.stdout.write(error(`✖ ${err.message}`))
+	process.exit(1)
 }
 
-function showSuccess(dados) {
-	const head = Object.keys(dados);
-	const values = head.map(k => dados[k]);
-	const table = new Table({head});
-	table.push(values);
-	process.stdout.write(`${table.toString()}\n`);
+function show(dados) {
+	if (dados && dados.length > 0) {
+		const tableHead = ['']
+		dados.forEach(row => {
+			tableHead.push(row.cep)
+		})
+		const table = new Table({head: tableHead})
+		const cols = Object.keys(dados[0])
+		for (let i = 0; i < cols.length; i++) {
+			const col = cols[i]
+			if (col === 'cep') {
+				continue
+			}
+			const arr = []
+			dados.forEach(row => {
+				arr.push(row[col])
+			})
+			const obj = {}
+			obj[warn(col)] = arr
+			table.push(obj)
+		}
+		process.stdout.write(table.toString())
+	} else {
+		process.stdout.write(warn('⚠ Nenhum registro encontrado'))
+	}
 }
 
 function success(res) {
-	if (res.hasOwnProperty('success')) {
-		res.success = null;
-		Reflect.deleteProperty(res, 'success');
+	const dados = []
+	for (const dado of res.dados) {
+		dados.push(dado)
 	}
-	for (const dados of res.dados) {
-		dados.req = res.req;
-		showSuccess(dados);
-	}
-	process.exit();
+	show(dados)
+	process.exit(0)
 }
 
 program
@@ -42,12 +58,12 @@ program
 	.usage('<input>')
 	.arguments('<input>')
 	.action(req => {
-		consulta(String(req))
+		consulta(req)
 			.then(success)
-			.catch(fail);
+			.catch(fail)
 	})
-	.parse(process.argv);
+	.parse(process.argv)
 
-if (!program.args.length) {
-	program.help();
+if (program.args && program.args.length === 0) {
+	program.help()
 }

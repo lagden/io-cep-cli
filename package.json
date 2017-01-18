@@ -1,6 +1,6 @@
 {
   "name": "io-cep-cli",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Busca por informações de uma localidade através do endereço ou CEP utilizando os Correios",
   "keywords": [
     "cli-app",
@@ -21,11 +21,10 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
-  "directories": {
-    "man": "./man"
-  },
   "files": [
     "cli.js",
+    "README.md",
+    "license",
     "man"
   ],
   "preferGlobal": true,
@@ -35,30 +34,39 @@
   "man": "./man/correios.1",
   "repository": "lagden/io-cep-cli",
   "scripts": {
-    "build-man": "remark doc/*.?.md --config-path .remarkrc-man --quiet",
+    "man": "mkdir -p man && remark doc/*.?.md",
     "test": "ava"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
-    "ava": "^0.9.1",
-    "remark": "^3.0.0",
-    "remark-man": "^2.0.0",
-    "xo": "^0.12.1"
+    "ava": "0.17.0",
+    "remark-cli": "2.1.0",
+    "remark-man": "4.0.0",
+    "xo": "0.17.1"
   },
   "dependencies": {
-    "chalk": "^1.1.0",
-    "cli-table": "^0.3.1",
-    "commander": "^2.9.0",
-    "harmony-reflect": "^1.4.2",
-    "io-cep": "^2.1.1"
+    "chalk": "1.1.3",
+    "cli-table2": "0.2.0",
+    "commander": "2.9.0",
+    "io-cep": "2.2.1
   },
   "xo": {
     "envs": [
-      "es6",
-      "node"
+      "es6"
     ],
-    "esnext": true
+    "semicolon": false
+  },
+  "remarkConfig": {
+    "output": "man/correios.1",
+    "plugins": {
+      "remark-man": {
+        "name": "correios",
+        "date": "2017-01-06",
+        "manual": "correios manual",
+        "version": "2.0.0"
+      }
+    }
   }
 }
