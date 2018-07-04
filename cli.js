@@ -3,7 +3,7 @@
 'use strict'
 
 const program = require('commander')
-const Table = require('cli-table2')
+const Table = require('cli-table3')
 const chalk = require('chalk')
 const consulta = require('io-cep')
 const pkg = require('./package.json')
